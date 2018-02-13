@@ -14,4 +14,8 @@ build-docker:
 
 .PHONY: push
 push:
+	@docker tag $(IMAGE):$(VERSION) $(USERNAME)/$(IMAGE):$(VERSION)
 	@docker push $(USERNAME)/$(IMAGE):$(VERSION)
+
+	@docker tag $(IMAGE):$(VERSION) $(USERNAME)/$(IMAGE):latest
+	@docker push $(USERNAME)/$(IMAGE):latest
